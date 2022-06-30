@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blocks',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'ENTREGA1_NIEVA_DUMAS.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [r'/Users/niconievadumas/Documents/Programacion/CODER/ENTREGA1_NIEVA_DUMAS/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
