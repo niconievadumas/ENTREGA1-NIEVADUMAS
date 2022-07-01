@@ -55,7 +55,7 @@ ROOT_URLCONF = 'ENTREGA1_NIEVA_DUMAS.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'/Users/niconievadumas/Documents/Programacion/CODER/ENTREGA1_NIEVA_DUMAS/templates'],
+        'DIRS': [r'/Users/niconievadumas/Documents/Programacion/CODER/ENTREGA1_NIEVA_DUMAS/templates', r"C:\Users\Usuario\Desktop\Programacion\CODER\ENTREGA1-NIEVADUMAS\templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
