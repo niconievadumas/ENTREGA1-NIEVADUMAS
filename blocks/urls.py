@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import vista_1, index, vista_2
+from .views import registro, index, buscador, about
 
 urlpatterns = [
-    path('', index),
-    path('vista-1/', vista_1),
-    path('vista-2/', vista_2)
+    path('', index, name='index'),
+    path('registro/', registro, name='registro'),
+    path('buscador/', buscador, name='buscador'),
+    path('about/', about , name='about')
 ]

@@ -21,16 +21,31 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                {% comment %} <a class="navbar-brand" href={% url 'index' %}>INDEX</a>
-                <a class="navbar-brand" href={% url 'listado_perros' %}>Perros</a> {% endcomment %}
+                <a class="navbar-brand" href={% url 'index' %}>Inicio</a>
+                <a class="navbar-brand" href={% url 'registro' %}>Registro</a>
+                <a class="navbar-brand" href={% url 'buscador' %}>Buscador</a>
             </div>
         </nav>
         <!-- Masthead-->
 
         {% block header %}
-            
-                {% block texto_header %} 
-                {% endblock texto_header %} 
+        <header class="masthead">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                            <!-- Page heading-->
+                            <h1 class="mb-5">
+                            {% block texto_header %}
+                            
+                            {% endblock texto_header %}
+                            </h1>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
         {% endblock header %}
 
         {% block despues_del_header %}{% endblock despues_del_header %}
@@ -42,15 +57,13 @@
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">About</a></li>
+                            <li class="list-inline-item"><a href={% url 'about' %}>About</a></li>
                             <li class="list-inline-item">⋅</li>
                             <li class="list-inline-item"><a href="#!">Contact</a></li>
                             <li class="list-inline-item">⋅</li>
                             <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
                         </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2022. All Rights Reserved.</p>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; Website NND - CoderHourse 2022. All Rights Reserved.</p>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
