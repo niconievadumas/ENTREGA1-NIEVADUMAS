@@ -1,1 +1,24 @@
-<p>Esto es un about</p>
+{% extends 'base.html' %}
+
+{% block title %}
+<title>About</title>
+{% endblock title %}
+
+{% block texto_header %}
+<h1>Acerca del creador</h1>
+{% endblock texto_header %}
+
+{% block despues_del_header %}
+<p>
+    <b>NICOLAS NIEVA DUMAS</b>
+</p>
+<p>
+36 años. Vivo en San Miguel de Tucuman.</p> 
+<p>Contador Publico Nacional.
+    Hincha de Atletico Tucuman.
+    Novel apasionado de Python.</p>
+{% endblock despues_del_header %}
+
+
+
+

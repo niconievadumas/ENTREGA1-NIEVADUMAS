@@ -1,5 +1,22 @@
 {% extends 'base.html' %}
 
-{% block texto_header %}
-REGISTRO DE LIBROS
-{% endblock texto_header %}
+
+{% block header %}
+        <header class="masthead">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                            <!-- Page heading-->
+                            <h1 class="mb-5">
+                                {% block texto_header %}
+                                REGISTRO DE LIBROS
+                                {% endblock texto_header %}
+                            </h1>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+{% endblock header %}

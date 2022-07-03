@@ -1,1 +1,35 @@
-<p> vista dos compadre</p>
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Listado de libros</title>
+{% endblock title %}
+
+{% block texto_header %}
+<h1>Buscador</h1>
+{% endblock texto_header %}
+
+{% block despues_del_header %}
+<p>
+    <form action={% url 'buscador' %} method="get">
+        {% csrf_token %}
+        <table>{{form}}</table>
+        <br>
+        <button>Buscar</button>
+    </form>
+</p>
+<br>
+<p>
+    <B>Listado de libros registrados</b></p>
+<p>
+    {% if listado_libros %}
+    <ul>
+        {% for libro in listado_libros%}
+        <LI>{{libro}}</LI>
+        {% endfor %}
+    </ul>
+    {% else %}
+       <p> No se encontro el libro. </p>
+    {% endif %}
+    
+</p>
+{% endblock despues_del_header %}

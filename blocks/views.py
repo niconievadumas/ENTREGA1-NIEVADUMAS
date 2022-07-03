@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.forms import Form
 from django.shortcuts import render, redirect
 from .forms import FormLibros, BuscadorLibros
@@ -14,66 +15,37 @@ def registro(request):
     form = FormLibros(request.POST)
     
     if form.is_valid():
-        data = form .cleaned_data
+        data = form.cleaned_data
+        fecha = data.get("fecha_creacion")
+
         
         libro = Blocks(
-            titulo = data.get('titulo'),
+            titulo = data.get('titulo').capitalize(),
             autor = data.get('autor'),
-            fecha_creacion = data.get('fecha_creacion')
+            fecha_registro = fecha if fecha else datetime.now()
         ) 
 
-        libro.save()
-    # # nombre =request.POST.get("nombre")
-    # # edad =request.POST.get("edad") 
+        libro.save()   
 
-    # # perro = Perro(nombre=nombre, edad=edad, fecha_creacion=datetime.now())
-    # # perro.save()
-
-    # if request.method == "POST":
-    #     form = FormLibros(request.POST) 
-
-    #     if form.is_valid():
-    #         data = form.cleaned_data 
-    #         fecha = data.get("fecha_creacion")
-
-    #         perro = Blocks(
-    #             nombre=data.get("nombre"), 
-    #             edad=data.get("edad"), 
-    #             fecha_creacion=fecha if fecha else datetime.now()
-    #             )
-    #         perro.save()
-
-    #         # listado_perros = Perro.objects.all()
-    #         # form = BusquedaPerro()
-
-    #         # return render(request,"listado_perros.html", {"listado_perros": listado_perros, "form": form})
-    #         return redirect("buscador")
-
-    #     else:
-    #         return render(request, 'crear_perro.html', {"form": form})  
     
     form_libros = FormLibros
 
     return render(request, 'registro.html', {"form": form_libros})  
 
 
-# template = loader.get_template('index.html')
-    
-    # prueba1 = Perro(nombre= 'Nico')
-    # prueba2 = Perro(nombre= 'Leo')
-    # prueba3 = Perro(nombre= 'Juan')
-    # prueba1.save()
-    # prueba2.save()
-    # prueba3.save()
-
-    # render = template.render({'lista_objetos': [prueba1, prueba2, prueba3]})
-    
-    # return HttpResponse(render)
-    
-    return render(request, 'registro.html')
-
 def buscador(request):
-    return render(request, 'buscador.html')
+    
+    nombre_de_busqueda = request.GET.get("titulo")
+
+    if nombre_de_busqueda:
+        listado_libros = Blocks.objects.filter(titulo__icontains=nombre_de_busqueda)   #el __incontains es para poner que lo contenga
+    else:
+        listado_libros = Blocks.objects.all()
+
+        
+        
+    form_libros = BuscadorLibros()
+    return render(request, 'buscador.html',{'listado_libros':listado_libros,'form':form_libros})
 
 def about(request):
     return render(request, 'about.html')
